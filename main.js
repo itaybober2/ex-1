@@ -1,19 +1,47 @@
-console.log("Hello World!");
-setupCounter();
+document.addEventListener('DOMContentLoaded', () => {
+  const canvas = document.getElementById('drawingCanvas');
+  const ctx = canvas.getContext('2d');
+  const clearButton = document.getElementById('clearButton');
 
-function setupCounter() {
-  let count = 0;
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
 
-  function increment() {
-    count++;
-    document.querySelector("#count").innerHTML = count;
+  let drawing = false;
+
+  function startDrawing(e) {
+    drawing = true;
+    draw(e);
   }
 
-  function decrement() {
-    count--;
-    document.querySelector("#count").innerHTML = count;
+  function endDrawing() {
+    drawing = false;
+    ctx.beginPath();
   }
 
-  document.querySelector("#increment").addEventListener("click", increment);
-  document.querySelector("#decrement").addEventListener("click", decrement);
-}
+  function draw(e) {
+    if (!drawing) return;
+
+    ctx.lineWidth = 5;
+    ctx.lineCap = 'round';
+    ctx.strokeStyle = 'black';
+
+    ctx.lineTo(e.clientX, e.clientY);
+    ctx.stroke();
+    ctx.beginPath();
+    ctx.moveTo(e.clientX, e.clientY);
+  }
+
+  function clearCanvas() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+  }
+
+  canvas.addEventListener('mousedown', startDrawing);
+  canvas.addEventListener('mouseup', endDrawing);
+  canvas.addEventListener('mousemove', draw);
+  clearButton.addEventListener('click', clearCanvas);
+
+  window.addEventListener('resize', () => {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+  });
+});

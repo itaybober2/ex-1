@@ -1,32 +1,107 @@
 @import url("reset.css");
 /* This is a custom font from google fonts */
-@import url("https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@300..900&display=swap");
-
+/*@import url('https://fonts.googleapis.com/css2?family=Heebo:wght@100..900&display=swap');*/
+@import url('https://fonts.googleapis.com/css2?family=Bungee+Tint&family=Heebo:wght@100..900&display=swap');
 /* what is :root? https://developer.mozilla.org/en-US/docs/Web/CSS/:root */
 :root {
   /* Define design variables */
-  --color-primary: #2b2d42;
-  --color-secondary: #bfc6d2;
+  --color-primary: #ae3a43;
+  --color-secondary: #2a487a;
   --color-background: #f5f5f5;
-  --color-accent: #535bf2;
+  --color-accent: #b5409e;
 
   --border-radius: 0.5rem;
 
-  --font-titles: "Frank Ruhl Libre", serif;
+  --font-titles: "Bungee Tint", sans-serif;
+  --font-weight: 400;
+  --font-style: normal;
   --font-body: system-ui, sans-serif; /* system-ui matches the user's system font */
 }
 
-body {
+body, html {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+div {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+footer {
+  padding: 1rem;
+  background-color: var(--color-background);
+  text-align: center;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+}
+
+canvas {
+  display: block;
+  width: 100%;
+  height: calc(100% - 140px); /* Adjust height to ensure footer is visible */
+}
+
+title {
+  width: 100%;
+  align-content: center;
+}
+
+#clearButton {
+  position: absolute;
+  top: 220px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: var(--color-primary);
+  color: white;
+  border: none;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+}
+
+#clearButton:hover {
+  background-color: var(--color-accent);
+}
+
+.hp {
+  color: var(--color-secondary);
+  font-family: var(--font-body);
+  font-size: 1em;
+  padding-left: 700px;
+}
+
+.img {
+  width: 100%;
+  height: 100%;
+  padding-left: 380px;
+}
+
+#fp {
+  color: var(--color-secondary);
+  font-family: var(--font-body);
+  font-size: 1em;
+}
+
+h2,
+h3,
+h4,
+h5,
+h6, button {
   color: var(--color-primary);
   background-color: var(--color-background);
   font-family: var(--font-body);
 }
 
 /* Layout */
-main {
-  padding: 2rem;
-}
-
 header {
   padding: 1rem;
 }
@@ -61,12 +136,7 @@ li {
   margin-top: 0.3rem;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
+h1 {
   margin-top: 1rem;
   font-family: var(--font-titles);
   font-weight: 500;
@@ -97,62 +167,4 @@ h6 {
   font-size: 0.83em;
 }
 
-blockquote {
-  padding-left: 1rem;
-  border-left: 2px solid var(--color-secondary);
-}
 
-/* Links */
-a {
-  color: var(--color-accent);
-  text-decoration: underline;
-}
-a:hover {
-  text-decoration: none;
-}
-
-/* Tables */
-table {
-  margin-top: 1.5rem;
-  border-spacing: 0px;
-  border-collapse: collapse;
-}
-table td,
-table th {
-  padding: 0.5rem;
-  border: 1px solid var(--color-secondary);
-}
-
-/* Forms */
-input,
-button,
-textarea,
-select {
-  padding: 0.2em 0.5em;
-  border: 1px solid var(--color-secondary);
-  border-radius: var(--border-radius);
-}
-
-fieldset {
-  margin-top: 1.5rem;
-  border: 1px solid var(--color-secondary);
-}
-
-.counter-button {
-  background-color: var(--color-accent);
-  width: 2rem;
-  height: 2rem;
-  color: white;
-  border: none;
-  border-radius: 1000px; /* Make the button round */
-  cursor: pointer;
-  font-weight: bold;
-
-  &:hover {
-    filter: brightness(120%);
-  }
-
-  &:active {
-    filter: brightness(80%);
-  }
-}

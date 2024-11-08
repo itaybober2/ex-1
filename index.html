@@ -1,28 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.png" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>My Website</title>
-    <link href="/styles/main.css" rel="stylesheet" />
-  </head>
-  <body>
-    <header role="banner">
-      <h1>Welcome to my Website!</h1>
-    </header>
-    <main>
-      <p>This is a paragraph.</p>
-      <a href="/elements.html">Elements Page</a>
-
-      <div class="counter">
-        <h2>Counter</h2>
-        <button id="increment" class="counter-button">+</button>
-        <button id="decrement" class="counter-button">−</button>
-        <span id="count">0</span>
-      </div>
-    </main>
-
-    <script type="module" src="/main.js"></script>
-  </body>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Drawing Canvas</title>
+  <link href="styles/main.css" rel="stylesheet" />
+</head>
+<body>
+<div>
+  <header>
+    <h1>Welcome to Draw_on_the_Canvas.com</h1>
+  </header>
+  <div>
+  <p class="hp">Use your mouse to draw on the canvas below. <br>
+    Click the button to clear your drawing.<br>
+    When you're done,
+    click on the dog to see our gallery!
+  </p>
+  </div>
+  <button id="clearButton">Clear Drawing</button>
+  <canvas id="drawingCanvas"></canvas>
+  <div class="img">
+  <a href="gallery.html">
+    <img src="public/1.webp" alt="Placeholder Image">
+    </a>
+  </div>
+  <footer>
+    <p id="fp">Visit our <a href="https://everynoise.com/">website</a> for more information.</p>
+  </footer>
+</div>
+<script src="main.js"></script>
+</body>
 </html>
