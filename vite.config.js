@@ -1,7 +1,6 @@
-// vite.config.js
-import { defineConfig } from "vite";
-import path from "path";
-import fs from "fs";
+import { defineConfig } from 'vite';
+import path from 'path';
+import fs from 'fs';
 
 function getHtmlEntryFiles(srcDir) {
   const entry = {};
@@ -11,9 +10,9 @@ function getHtmlEntryFiles(srcDir) {
   files.forEach((file) => {
     const filePath = path.join(srcDir, file);
 
-    if (path.extname(file) === ".html") {
+    if (path.extname(file) === '.html') {
       // If it's an HTML file, add it to the entry object
-      const name = path.relative(srcDir, filePath).replace(/\..*$/, "");
+      const name = path.relative(srcDir, filePath).replace(/\..*$/, '');
       entry[name] = filePath;
     }
   });
@@ -22,6 +21,7 @@ function getHtmlEntryFiles(srcDir) {
 }
 
 export default defineConfig({
+  base: './', // Ensure the base path is correct
   build: {
     rollupOptions: {
       input: getHtmlEntryFiles(__dirname),
